@@ -29,6 +29,9 @@ const DashboardLayout = () => {
                     <Link to={"/dashboard/"}>Dashboard</Link>
                   </li>
                   <li className="m-1">
+                    <Link to={"/dashboard/fake"}>Comment</Link>
+                  </li>
+                  <li className="m-1">
                     <Link to={"/dashboard/all-user"}>All User</Link>
                   </li>
                   <li className="m-1">
