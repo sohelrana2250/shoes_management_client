@@ -1,15 +1,46 @@
 import React from "react";
-import AllGetAction from "../FatchAction/AllGetAction";
+
 import LoadingSpinner from "../components/LoadingSpinner";
 import ErrorPage from "./ErrorPage";
 import { GrStatusGood } from "react-icons/gr";
 import PutAction from "../FatchAction/PutAction";
+import { useQuery } from "@tanstack/react-query";
 
 const AllUser = () => {
-  const { data, isLoading, error, refetch } = AllGetAction(
-    `${import.meta.env.VITE_Server_Url}/users/alluserdata`
-  );
+  // const { data, isLoading, error, refetch } = AllGetAction(
+  //   `${import.meta.env.VITE_Server_Url}/users/alluserdata`
+  // );
   //all-user
+  const token = localStorage.getItem("token");
+  const {
+    data = [],
+    isLoading,
+    error,
+    refetch,
+  } = useQuery({
+    queryKey: ["data"],
+    queryFn: async () => {
+      try {
+        const res = await fetch(
+          `${import.meta.env.VITE_Server_Url}/users/alluserdata`,
+          {
+            method: "GET",
+            headers: {
+              authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await res?.json();
+        return data;
+      } catch (error) {
+        toast.error(`Failed to fetch reviews: ${error?.message}`);
+      }
+    },
+  });
+
   const handleAdminToggle = (id, role) => {
     const chnageStatus = role === "user" ? { role: "admin" } : { role: "user" };
     PutAction(
