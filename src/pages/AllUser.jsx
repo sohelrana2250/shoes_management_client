@@ -6,6 +6,9 @@ import { GrStatusGood } from "react-icons/gr";
 import PutAction from "../FatchAction/PutAction";
 
 const AllUser = () => {
+  const { data, isLoading, error, refetch } = AllGetAction(
+    `${import.meta.env.VITE_Server_Url}/users/alluserdata`
+  );
   //all-user
   const handleAdminToggle = (id, role) => {
     const chnageStatus = role === "user" ? { role: "admin" } : { role: "user" };
@@ -15,9 +18,7 @@ const AllUser = () => {
       refetch
     );
   };
-  const { data, isLoading, error, refetch } = AllGetAction(
-    `${import.meta.env.VITE_Server_Url}/users/alluserdata`
-  );
+
   if (isLoading) {
     return <LoadingSpinner />;
   }
