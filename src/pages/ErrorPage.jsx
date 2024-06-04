@@ -2,7 +2,7 @@ import { Link, useRouteError } from "react-router-dom";
 
 const ErrorPage = () => {
   const { error, status } = useRouteError();
-  const loading = location.reload();
+  const loading = window.location.reload();
 
   return (
     <div className="container flex flex-col justify-center items-center h-screen text-center py-32">
