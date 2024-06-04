@@ -119,7 +119,7 @@ export const router = createBrowserRouter([
           fetch(`${import.meta.env.VITE_Server_Url}/shoes/${params.id}`),
       },
       {
-        path: "/dashboard/all-user",
+        path: "/dashboard/all_user",
         element: (
           <PrivateRoute>
             <AllUser />
