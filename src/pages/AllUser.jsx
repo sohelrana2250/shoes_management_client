@@ -42,10 +42,10 @@ const AllUser = () => {
     },
   });
 
-  const handleAdminToggle = async (id, role) => {
+  const handleAdminToggle = (id, role) => {
     const changeStatus = role === "user" ? { role: "admin" } : { role: "user" };
     try {
-      await PutAction(
+      PutAction(
         `${import.meta.env.VITE_Server_Url}/user/status/${id}`,
         changeStatus,
         refetch
@@ -87,9 +87,8 @@ const AllUser = () => {
                         <img
                           className="object-cover w-full h-full rounded-full"
                           src={
-                            v?.photo
-                              ? v.photo
-                              : "https://community.fabric.microsoft.com/t5/image/serverpage/image-id/813578i64726DCE0B971C89?v=v2"
+                            v?.photo ||
+                            "https://community.fabric.microsoft.com/t5/image/serverpage/image-id/813578i64726DCE0B971C89?v=v2"
                           }
                           alt=""
                           loading="lazy"

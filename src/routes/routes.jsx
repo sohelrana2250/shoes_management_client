@@ -56,6 +56,14 @@ export const router = createBrowserRouter([
         element: <Registration />,
       },
       {
+        path: "/all_users",
+        element: (
+          <PrivateRoute>
+            <AllUser />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/profile",
         element: (
           <PrivateRoute>

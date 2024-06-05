@@ -95,6 +95,7 @@ const Navbar = () => {
           <li>
             <Link to={"/allshoes"}>All Shoes</Link>
           </li>
+
           {!user && (
             <>
               <li>
@@ -106,9 +107,14 @@ const Navbar = () => {
             </>
           )}
           {user && (
-            <li>
-              <Link to={"/dashboard"}>Dashboard</Link>
-            </li>
+            <>
+              <li>
+                <Link to={"/all_users"}>All Users</Link>
+              </li>
+              <li>
+                <Link to={"/dashboard"}>Dashboard</Link>
+              </li>
+            </>
           )}
         </ul>
       </div>

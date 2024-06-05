@@ -34,9 +34,9 @@ const DashboardLayout = () => {
                   <li className="m-1">
                     <Link to={"/dashboard/add-products"}>Add Product</Link>
                   </li>
-                  <li className="m-1">
+                  {/* <li className="m-1">
                     <Link to={"/dashboard/all_user"}>All User</Link>
-                  </li>
+                  </li> */}
                 </>
               )}
               <li className="m-1">
