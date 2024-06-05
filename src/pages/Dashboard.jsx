@@ -14,6 +14,7 @@ import {
   Legend,
   Bar,
 } from "recharts";
+import AllUser from "./AllUser";
 const Dashboard = () => {
   const { data, isLoading, error } = AllGetAction(
     `${import.meta.env.VITE_Server_Url}/dashboard/items`
