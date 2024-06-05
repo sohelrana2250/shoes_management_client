@@ -26,12 +26,8 @@ const DashboardLayout = () => {
               {isAdmin && (
                 <>
                   <li className="m-1">
-                    <Link to={"/dashboard/"}>Dashboard</Link>
+                    <Link to={"/dashboard"}>Dashboard</Link>
                   </li>
-                  <li className="m-1">
-                    <Link to={"/dashboard/fake"}>Comment</Link>
-                  </li>
-
                   <li className="m-1">
                     <Link to={"/dashboard/all-products"}>All Products</Link>
                   </li>

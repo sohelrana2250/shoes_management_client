@@ -11,7 +11,11 @@ const AllUser = () => {
   //   `${import.meta.env.VITE_Server_Url}/users/alluserdata`
   // );
   //all-user
-  const token = localStorage.getItem("token");
+
+  if (!import.meta.env.VITE_Server_Url) {
+    return <ErrorPage />;
+  }
+
   const {
     data = [],
     isLoading,
@@ -26,8 +30,9 @@ const AllUser = () => {
           {
             method: "GET",
             headers: {
-              authorization: `Bearer ${token}`,
+              authorization: `Bearer ${localStorage?.getItem("token")}`,
             },
+            cache: "no-cache",
           }
         );
         if (!res.ok) {
